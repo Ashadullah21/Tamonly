@@ -18,10 +18,20 @@ services:
       - key: APP_KEY
         generateValue: true
       - key: DB_CONNECTION
-        value: sqlite
+        value: mysql
+      - key: DB_HOST
+        value: tw-fastwitterx.e.aivencloud.com
+      - key: DB_PORT
+        value: "19300"
       - key: DB_DATABASE
-        value: /var/www/html/database/database.sqlite
+        value: Tamilonly
+      - key: DB_USERNAME
+        value: avnadmin
+      - key: DB_PASSWORD
+        sync: false
+      - key: MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
+        value: "false"
       - key: RUN_MIGRATIONS
         value: "true"
       - key: RUN_SEEDER
-        value: "true"
+        value: "false"
