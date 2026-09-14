@@ -13,6 +13,8 @@ services:
         value: production
       - key: APP_DEBUG
         value: "false"
+      - key: APP_URL
+        value: https://tamilonlymv.onrender.com
       - key: LOG_CHANNEL
         value: stderr
       - key: APP_KEY
