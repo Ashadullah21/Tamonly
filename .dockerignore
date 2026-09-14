@@ -1,0 +1,16 @@
+node_modules
+vendor
+.git
+.github
+.env
+.env.*
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+tests
+*.md
+scrap.txt
+temp_check.php
+test_*.php
+check_*.php
