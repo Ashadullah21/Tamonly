@@ -1,0 +1,13 @@
+// Master Stylesheet for Movie Aggregator Platform
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+
+// Modular Theme Components
+@import 'layout';
+@import 'navbar';
+@import 'cards';
+@import 'buttons';
+@import 'forms';
+@import 'movie';
+@import 'empty_states';
+@import 'skeletons';

@@ -1,0 +1,35 @@
+// Lightweight Loading Skeletons
+@keyframes skeletonPulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+.skeleton {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    animation: skeletonPulse 1.8s ease-in-out infinite;
+
+    &.skeleton-poster {
+        aspect-ratio: 2 / 3;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    &.skeleton-title {
+        height: 18px;
+        width: 80%;
+        margin-bottom: 8px;
+    }
+
+    &.skeleton-text {
+        height: 14px;
+        width: 50%;
+    }
+}

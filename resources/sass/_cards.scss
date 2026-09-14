@@ -1,0 +1,189 @@
+// Redesigned Modern Movie Card
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: $theme-card-bg;
+    border: 1px solid $theme-border;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.22s ease,
+                box-shadow 0.22s ease;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.55);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+        text-decoration: none;
+
+        .poster-img {
+            transform: scale(1.03);
+        }
+
+        .movie-title {
+            color: lighten($primary, 20%);
+        }
+    }
+
+    // Top Poster Section
+    .poster-wrap {
+        aspect-ratio: 2 / 3;
+        position: relative;
+        background-color: #0b1120;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .poster-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: $text-dim;
+            padding: 1.5rem;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0b1120 0%, #161f36 100%);
+
+            i {
+                font-size: 2.75rem;
+                color: rgba(59, 130, 246, 0.4);
+                margin-bottom: 0.5rem;
+            }
+
+            span {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: $text-dim;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+        }
+
+        // Overlay gradient at bottom edge for smooth transition
+        .poster-gradient-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 35%;
+            background: linear-gradient(to top, rgba(19, 27, 46, 0.85) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .poster-top-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(9, 13, 22, 0.82);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.45rem;
+            border-radius: 6px;
+        }
+    }
+
+    // Details & Content Section
+    .card-body {
+        padding: 0.85rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        background-color: $theme-card-bg;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+        .movie-title {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.975rem;
+            line-height: 1.35;
+            margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: color 0.18s ease;
+        }
+
+        .movie-meta {
+            color: $text-muted;
+            font-size: 0.825rem;
+            font-weight: 500;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            .meta-dot {
+                color: $text-dim;
+            }
+        }
+
+        // Available Qualities row: 1080p · 720p · 480p
+        .movie-qualities {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+
+            .quality-pill {
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 0.15rem 0.45rem;
+                border-radius: 4px;
+                background-color: rgba(255, 255, 255, 0.06);
+                color: #cbd5e1;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+
+                &.quality-1080p {
+                    background-color: rgba(59, 130, 246, 0.12);
+                    border-color: rgba(59, 130, 246, 0.25);
+                    color: #93c5fd;
+                }
+
+                &.quality-720p {
+                    background-color: rgba(16, 185, 129, 0.1);
+                    border-color: rgba(16, 185, 129, 0.2);
+                    color: #6ee7b7;
+                }
+
+                &.quality-480p {
+                    background-color: rgba(148, 163, 184, 0.1);
+                    border-color: rgba(148, 163, 184, 0.15);
+                    color: #cbd5e1;
+                }
+
+                &.quality-360p {
+                    background-color: rgba(245, 158, 11, 0.12);
+                    border-color: rgba(245, 158, 11, 0.25);
+                    color: #fcd34d;
+                }
+            }
+
+            .no-qualities {
+                font-size: 0.725rem;
+                color: $text-dim;
+            }
+        }
+    }
+}

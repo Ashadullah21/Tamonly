@@ -1,0 +1,141 @@
+// Modern Glassmorphic Navbar
+.site-navbar {
+    background-color: rgba(9, 13, 22, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid $theme-border;
+    padding: 0.85rem 0;
+    transition: all 0.2s ease;
+    z-index: 1030;
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: #ffffff !important;
+        letter-spacing: -0.03em;
+        text-decoration: none;
+
+        .brand-icon {
+            font-size: 1.4rem;
+            color: $primary;
+            background: $primary-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .brand-text {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .brand-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            background-color: rgba(59, 130, 246, 0.15);
+            color: $primary;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            margin-left: 0.2rem;
+        }
+    }
+
+    .nav-link {
+        font-weight: 600;
+        font-size: 0.925rem;
+        color: $text-muted !important;
+        padding: 0.5rem 0.85rem !important;
+        border-radius: 6px;
+        transition: all 0.18s ease;
+
+        &:hover, &.active {
+            color: #ffffff !important;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    }
+
+    .navbar-toggler {
+        border: 1px solid $theme-border;
+        background-color: rgba(255, 255, 255, 0.04);
+        padding: 0.4rem 0.65rem;
+        border-radius: 8px;
+        color: #ffffff;
+
+        &:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
+        }
+
+        .navbar-toggler-icon {
+            filter: invert(1);
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+
+    .navbar-collapse {
+        @media (max-width: 991.98px) {
+            background-color: $theme-dark-surface;
+            border: 1px solid $theme-border;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    // Mini search on navbar
+    .nav-search {
+        position: relative;
+        max-width: 320px;
+        width: 100%;
+
+        .nav-search-input {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.06);
+            border: 1px solid $theme-border;
+            border-radius: 9999px;
+            padding: 0.45rem 2.5rem 0.45rem 1rem;
+            font-size: 0.875rem;
+            color: #ffffff;
+            transition: all 0.2s ease;
+
+            &::placeholder {
+                color: $text-dim;
+            }
+
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: $primary;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+                outline: none;
+            }
+        }
+
+        .nav-search-btn {
+            position: absolute;
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: $text-muted;
+            padding: 0.3rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: color 0.15s ease;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}

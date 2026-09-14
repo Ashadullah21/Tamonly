@@ -1,0 +1,1 @@
+To re-scrape anytime (for new movies): php artisan movies:scrape-all

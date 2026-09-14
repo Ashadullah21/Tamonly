@@ -1,0 +1,122 @@
+// Modern Button Styling
+.btn {
+    font-weight: 600;
+    transition: all 0.18s ease-in-out;
+    border-radius: $btn-border-radius;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.btn-primary {
+    background: $primary-gradient;
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+
+    &:hover, &:focus {
+        background: linear-gradient(135deg, lighten(#3b82f6, 5%) 0%, lighten(#6366f1, 5%) 100%);
+        box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
+        color: #ffffff;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.35);
+        color: #ffffff;
+    }
+}
+
+// Download Button
+.btn-download-primary {
+    background: $primary-gradient;
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.85rem 2.25rem;
+    border-radius: 9999px;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+    text-decoration: none;
+    transition: all 0.22s ease;
+
+    &:hover {
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.55);
+        transform: translateY(-2px);
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    i {
+        font-size: 1.2rem;
+    }
+}
+
+// Interactive Quality Selector Pills
+.quality-selector-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    .quality-option-btn {
+        background-color: $theme-card-bg;
+        border: 1px solid $theme-border;
+        border-radius: 10px;
+        padding: 0.75rem 1.25rem;
+        cursor: pointer;
+        transition: all 0.18s ease;
+        text-align: left;
+        color: $text-light;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        min-width: 120px;
+
+        .quality-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quality-info {
+            font-size: 0.775rem;
+            color: $text-muted;
+            margin-top: 0.2rem;
+        }
+
+        &:hover {
+            border-color: $primary;
+            background-color: $theme-card-hover;
+            transform: translateY(-2px);
+        }
+
+        &.active, &:focus {
+            background-color: rgba(59, 130, 246, 0.15);
+            border-color: $primary;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+
+            .quality-title {
+                color: lighten($primary, 15%);
+            }
+        }
+    }
+}
