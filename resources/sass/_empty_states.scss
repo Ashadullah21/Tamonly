@@ -48,4 +48,38 @@
         gap: 0.75rem;
         flex-wrap: wrap;
     }
+
+    @media (max-width: 575.98px) {
+        padding: 2.25rem 1.25rem;
+        margin: 1.5rem auto;
+
+        .empty-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+
+            i {
+                font-size: 1.75rem;
+            }
+        }
+
+        .empty-title {
+            font-size: 1.25rem;
+        }
+
+        .empty-desc {
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-actions {
+            flex-direction: column;
+            width: 100%;
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
 }

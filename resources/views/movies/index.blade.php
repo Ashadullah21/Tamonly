@@ -3,7 +3,7 @@
 @section('title', request('search') ? 'Search: ' . request('search') : 'Browse Movies')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-4 py-md-5">
     @if(request('search'))
         <!-- Prominent Search Results Header -->
         <div class="search-results-header">
@@ -35,7 +35,7 @@
     <!-- Search / Filter Bar on Index -->
     <div class="mb-4">
         <form action="{{ route('movies.index') }}" method="GET" class="row g-2 align-items-center">
-            <div class="col-md-6 col-lg-5">
+            <div class="col-12 col-md-6 col-lg-5">
                 <div class="input-group">
                     <span class="input-group-text bg-dark border-secondary text-muted">
                         <i class="bi bi-search"></i>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Movies Grid -->
-    <div class="row g-4 mb-5">
+    <div class="row g-2 g-sm-3 g-md-4 mb-4 mb-md-5">
         @forelse($movies as $movie)
         <div class="col-6 col-md-4 col-lg-3 col-xl-2">
             @include('movies.partials.card', ['movie' => $movie])
@@ -94,7 +94,7 @@
 
     <!-- Pagination -->
     @if($movies->hasPages())
-    <div class="d-flex justify-content-center pt-3">
+    <div class="d-flex justify-content-center pt-2 overflow-auto" style="-webkit-overflow-scrolling: touch;">
         {{ $movies->withQueryString()->links('pagination::bootstrap-5') }}
     </div>
     @endif

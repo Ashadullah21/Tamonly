@@ -45,10 +45,10 @@
 </section>
 
 <!-- Content Catalog Grid -->
-<div class="container py-5">
+<div class="container py-4 py-md-5">
     <!-- Popular Movies Section -->
     @if($popular->isNotEmpty())
-    <div class="mb-5">
+    <div class="mb-4 mb-md-5">
         <div class="section-header">
             <h2 class="section-title">
                 <i class="bi bi-fire"></i> Popular Right Now
@@ -58,7 +58,7 @@
             </a>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-2 g-sm-3 g-md-4">
             @foreach($popular as $movie)
             <div class="col-6 col-md-4 col-lg-3 col-xl-2">
                 @include('movies.partials.card', ['movie' => $movie])
@@ -79,7 +79,7 @@
             </a>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-2 g-sm-3 g-md-4">
             @foreach($latest as $movie)
             <div class="col-6 col-md-4 col-lg-3 col-xl-2">
                 @include('movies.partials.card', ['movie' => $movie])

@@ -186,4 +186,75 @@
             }
         }
     }
+
+    // Mobile specific card adjustments
+    @media (max-width: 575.98px) {
+        border-radius: 8px;
+
+        .poster-wrap {
+            .poster-top-badge {
+                top: 5px;
+                right: 5px;
+                font-size: 0.625rem;
+                padding: 0.15rem 0.35rem;
+                border-radius: 4px;
+            }
+
+            .poster-fallback {
+                padding: 0.75rem;
+                i {
+                    font-size: 2rem;
+                    margin-bottom: 0.25rem;
+                }
+                span {
+                    font-size: 0.675rem;
+                }
+            }
+        }
+
+        .card-body {
+            padding: 0.55rem 0.65rem 0.65rem;
+
+            .movie-title {
+                font-size: 0.85rem;
+                margin-bottom: 0.15rem;
+            }
+
+            .movie-meta {
+                font-size: 0.725rem;
+                margin-bottom: 0.4rem;
+                gap: 0.25rem;
+            }
+
+            .movie-qualities {
+                gap: 0.2rem;
+
+                .quality-pill {
+                    font-size: 0.625rem;
+                    padding: 0.1rem 0.35rem;
+                    border-radius: 3px;
+                }
+
+                .no-qualities {
+                    font-size: 0.65rem;
+                }
+            }
+        }
+    }
+
+    // Remove sticky hover elevation on touch screens
+    @media (hover: none) {
+        &:hover {
+            transform: none;
+            box-shadow: none;
+
+            .poster-img {
+                transform: none;
+            }
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
 }
