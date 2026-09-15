@@ -37,3 +37,5 @@ services:
         value: "true"
       - key: RUN_SEEDER
         value: "false"
+      - key: SCRAPE_SECRET
+        sync: false

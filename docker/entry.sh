@@ -37,6 +37,12 @@ if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force || true
 fi
 
+# Warn if SCRAPE_SECRET is not set (auto-sync webhook will be disabled)
+if [ -z "$SCRAPE_SECRET" ]; then
+    echo "==> WARNING: SCRAPE_SECRET is not set. The /api/sync webhook endpoint will return 500."
+    echo "    Add SCRAPE_SECRET=<random-string> to your Render environment variables."
+fi
+
 # Run database migrations
 if [ "$RUN_MIGRATIONS" != "false" ]; then
     echo "==> Running database migrations..."
@@ -45,7 +51,7 @@ fi
 
 # Run seeders if RUN_SEEDER is enabled
 if [ "$RUN_SEEDER" = "true" ]; then
-    echo "==> Seeding movie database (1990 - 2026)..."
+    echo "==> Seeding movie database..."
     php artisan db:seed --force || echo "Seeder execution completed."
 fi
 
@@ -54,6 +60,26 @@ echo "==> Caching Laravel optimization assets..."
 php artisan config:cache || php artisan config:clear
 php artisan route:cache || php artisan route:clear
 php artisan view:cache || php artisan view:clear
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Keep-alive ping (Render Free Tier)
+# Render Free Tier spins down containers after ~15 minutes of inactivity.
+# This background process self-pings /healthz every 14 minutes so the
+# container stays warm during active hours.
+#
+# Note: This only works while Apache is serving requests. If the service
+# truly goes cold (no requests at all for >15 min), the next incoming
+# request will still cause a cold-start delay of 30–60 seconds.
+# For 24/7 uptime, use UptimeRobot (free) to ping /healthz every 5 minutes.
+# ─────────────────────────────────────────────────────────────────────────────
+(
+    echo "==> Keep-alive daemon started (pings /healthz every 14 minutes)"
+    while true; do
+        sleep 840  # 14 minutes
+        APP_URL="${APP_URL:-http://localhost:${PORT}}"
+        curl -sf "${APP_URL}/healthz" -o /dev/null 2>&1 || true
+    done
+) &
 
 echo "==> Ready! Starting Apache web server on port ${PORT}..."
 exec apache2-foreground

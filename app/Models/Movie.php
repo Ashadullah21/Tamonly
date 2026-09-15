@@ -13,6 +13,10 @@ class Movie extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'scraped_at' => 'datetime',
+    ];
+
     public function links()
     {
         return $this->hasMany(MovieLink::class);
