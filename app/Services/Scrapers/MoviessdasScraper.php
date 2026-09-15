@@ -425,6 +425,11 @@ class MoviessdasScraper
             }
         });
 
+        // If this movie already has download links in the database, skip redundant subpage fetching
+        if ($movie->links()->exists()) {
+            return $movie;
+        }
+
         // ── Quality links from movie page (Original, 1080p, 720p...) ──────
         $qualityLinks = [];
         $crawler->filter('div.f a')->each(function (Crawler $a) use (&$qualityLinks) {
